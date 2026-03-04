@@ -8,4 +8,4 @@ A little about me:
 - I am taking STATS 220 because this is my compulsory course.
 - I am interested in learning about collecting data and analyzing them.
 
-A meme that captures how I currently feel about my university studies is ![](https://share.google/slMchlrOTSAWInyDt)
+A meme that captures how I currently feel about my university studies is ![]([https://share.google/slMchlrOTSAWInyDt](https://accountingprofessor.wordpress.com/wp-content/uploads/2012/11/you-should-be-studying-en-ffffff-1.jpg))
