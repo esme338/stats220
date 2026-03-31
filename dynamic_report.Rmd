@@ -1,0 +1,56 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+library(tidyverse)
+```
+
+```{css}
+body {
+  background-color: #FEFFE0;
+}
+h2 {color: #4520E3}
+```
+
+## What's going on with this data?
+
+```{r}
+logged_data <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vTewmDIIOrJqjwPTb1Zpsi3flcZq-qm3IONyHw0t90Ck8KGGMETZq-F-keSKcb0rF4g370GRNlQnLRL/pub?gid=355949255&single=true&output=csv")
+
+latest_data <- logged_data %>%
+  rename(
+    minutes = 2,
+    purpose = 3,
+    time_of_day = 4,
+    activity = 5
+  )
+
+latest_data$minutes <- as.numeric(latest_data$minutes)
+```
+
+```{r}
+avg_time <- mean(latest_data$minutes)
+max_time <- max(latest_data$minutes)
+```
+
+The average phone usage per day is `r round(avg_time,1)` minutes.
+
+The maximum phone usage recorded is `r max_time` minutes.
+
+```{r}
+ggplot(latest_data, aes(x = purpose)) +
+  geom_bar(fill = "#FF82EC") +
+  labs(title = "Phone Usage by Purpose")
+```
+```{r}
+ggplot(latest_data, aes(x = time_of_day)) +
+  geom_bar(fill = "#76E0E8") +
+  labs(title = "Phone Usage by Time of Day")
+```
+
+
+
+
