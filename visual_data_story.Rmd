@@ -1,0 +1,99 @@
+---
+title: Phone Usage Trends in Daily Life
+output: html_document
+---
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+```
+
+```{js}
+$(function() {
+  $(".level2").css('visibility', 'hidden');
+  $(".level2").first().css('visibility', 'visible');
+  $(".container-fluid").height($(".container-fluid").height() + 300);
+  $(window).on('scroll', function() {
+    $('h2').each(function() {
+      var h2Top = $(this).offset().top - $(window).scrollTop();
+      var windowHeight = $(window).height();
+      if (h2Top >= 0 && h2Top <= windowHeight / 2) {
+        $(this).parent('div').css('visibility', 'visible');
+      } else if (h2Top > windowHeight / 2) {
+        $(this).parent('div').css('visibility', 'hidden');
+      }
+    });
+  });
+})
+```
+
+```{css, echo=FALSE}
+.figcaption {display: none;}
+body {
+  background-color: #f7f9fc;
+  font-family: Helvetica;
+  color: #2c3e50;
+}
+
+h1 {
+  color: #1f4e79;
+  text-align: center;
+}
+
+h2 {
+  color: #2b6cb0;
+  margin-top: 60px;
+}
+
+img {
+  border-radius: 12px;
+  width: 85%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.7;
+}
+```
+
+
+## Introduction
+
+People use their phones for many different purposes throughout the day, including entertainment, communication, relaxing, and studying. This visual data story explores patterns in daily phone usage based on observational logging data collected over time.
+
+The data was collected through observational logging and focuses on daily phone usage duration, phone usage purposes, and the time periods during which phones were used most frequently. By visualizing these patterns, it becomes easier to understand how phone usage behaviors change throughout the day and across different situations.
+
+
+## Purpose of Phone Usage
+
+![Bar chart showing average phone usage minutes across different purposes of phone use. Entertainment and social media categories show higher average phone usage.](plot1.png)
+
+This visualization compares average phone usage time across different purposes. Entertainment and related activities generally showed higher average usage times compared with other categories. The chart highlights how different phone activities contribute differently to overall screen time behavior.
+
+
+## Phone Usage by Time Period
+
+![Line chart showing average phone usage across different time periods of the day, including morning, afternoon, evening, and midnight.](plot2.png)
+
+This visualization shows how average phone usage changes across different periods of the day. The results suggest that phone usage tends to vary depending on the time period, with some periods showing obviously higher average screen time. This helps reveal how daily routines and behaviors may influence phone usage habits.
+
+
+## Phone Usage During Different Time Periods
+
+![Boxplot showing the distribution of phone usage minutes during different time periods. Some periods show wider variation in phone usage duration.](plot3.png)
+
+The box plot demonstrates how phone usage duration varies across different time periods. Some periods show a larger spread of values, indicating more variation in phone usage behavior. This visualization helps identify differences in consistency and distribution across time categories.
+
+
+## Conclusion
+
+Overall, the visualizations reveal clear patterns in daily phone usage behavior. Phone usage varied depending on purpose, time of day, and usage period. By using visual communication techniques, the data becomes easier to interpret and allows important behavioral trends to be identified more effectively.
+
+
+
+
+
